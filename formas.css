@@ -1,0 +1,33 @@
+#container {
+    width: 500px; /* Define a largura do container */
+    margin: 20px auto; /* Centraliza o container na página */
+}
+
+#quadrado {
+    width: 100px;
+    height: 100px;
+    background-color: #FF0000; /* Cor vermelha */
+    border: 5px solid #000000; /* Borda preta */
+}
+
+#triangulo {
+    width: 0;
+    height: 0;
+
+    border-left: 50px solid #00FF00; /* Borda verde à esquerda */
+    border-right: 50px solid #00FF00; /* Borda verde à direita */
+    border-bottom: 100px solid transparent; /* Base transparente */
+}
+
+#circulo {
+    width: 100px;
+    height: 100px;
+    background-color: #FFFF00; /* Cor amarela */
+    border-radius: 50%; /* Arredonda as bordas para criar um círculo */
+}
+
+#estrela {
+    width: 100px;
+    height: 100px;
+    position: relative; /* Posicionamento relativo para os pseudo-elementos */
+}
