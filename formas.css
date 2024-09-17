@@ -1,33 +1,204 @@
+/* Estilos básicos */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    overflow: hidden; /* Para impedir que o carro saia da tela */
+}
+
+/* Container para o carro */
 #container {
-    width: 500px; /* Define a largura do container */
-    margin: 20px auto; /* Centraliza o container na página */
+    position: relative;
+    width: 800px;
+    height: 250px;
 }
 
-#quadrado {
-    width: 100px;
-    height: 100px;
-    background-color: #FF0000; /* Cor vermelha */
-    border: 5px solid #000000; /* Borda preta */
+/* Corpo do carro */
+.car-body {
+    position: relative;
+    width: 600px;
+    height: 120px;
+    background-color: #2b2b2b;
+    border-radius: 30px 30px 15px 15px;
+    margin-top: 50px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    animation: moveCar 5s linear infinite;
 }
 
-#triangulo {
-    width: 0;
-    height: 0;
-
-    border-left: 50px solid #00FF00; /* Borda verde à esquerda */
-    border-right: 50px solid #00FF00; /* Borda verde à direita */
-    border-bottom: 100px solid transparent; /* Base transparente */
+/* Parte superior do carro */
+.car-top {
+    position: absolute;
+    width: 400px;
+    height: 70px;
+    background-color: #2b2b2b;
+    border-radius: 100px 100px 0 0;
+    top: -30px;
+    left: 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-#circulo {
-    width: 100px;
-    height: 100px;
-    background-color: #FFFF00; /* Cor amarela */
-    border-radius: 50%; /* Arredonda as bordas para criar um círculo */
+/* Janela do carro */
+.car-window {
+    position: absolute;
+    width: 180px;
+    height: 40px;
+    background-color: rgba(135, 206, 235, 0.85);
+    top: -20px;
+    left: 210px;
+    border-radius: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-#estrela {
-    width: 100px;
-    height: 100px;
-    position: relative; /* Posicionamento relativo para os pseudo-elementos */
+/* Porta do carro */
+.car-door {
+    position: absolute;
+    width: 190px;
+    height: 90px;
+    top: 10px;
+    left: 200px;
+    border-left: 2px solid #444;
+}
+
+/* Retrovisores */
+.car-mirror {
+    position: absolute;
+    width: 15px;
+    height: 25px;
+    background-color: #2b2b2b;
+    top: -10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.car-mirror.left {
+    left: 80px;
+    transform: rotate(-20deg);
+}
+
+.car-mirror.right {
+    right: 80px;
+    transform: rotate(20deg);
+}
+
+/* Faróis do carro */
+.car-headlight {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+    top: 50px;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+}
+
+.car-headlight.left {
+    left: 10px;
+}
+
+.car-headlight.right {
+    right: 10px;
+}
+
+/* Parachoques */
+.car-bumper {
+    position: absolute;
+    width: 150px;
+    height: 15px;
+    background-color: #3a3a3a;
+    border-radius: 10px;
+}
+
+.car-bumper.front {
+    top: 100px;
+    left: 40px;
+}
+
+.car-bumper.back {
+    top: 100px;
+    right: 40px;
+}
+
+/* Grade frontal do carro */
+.car-grill {
+    position: absolute;
+    width: 80px;
+    height: 15px;
+    background-color: #555;
+    top: 90px;
+    left: 260px;
+    border-radius: 10px;
+}
+
+/* Rodas do carro */
+.car-wheel {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: black;
+    border-radius: 50%;
+    bottom: -45px;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.6);
+    animation: rotateWheel 1s linear infinite;
+}
+
+.car-wheel.front {
+    left: 80px;
+}
+
+.car-wheel.back {
+    right: 80px;
+}
+
+/* Aros das rodas */
+.car-rim {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #888;
+    border-radius: 50%;
+    bottom: -30px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.car-rim.front-rim {
+    left: 100px;
+}
+
+.car-rim.back-rim {
+    right: 100px;
+}
+
+/* Escapamento */
+.car-exhaust {
+    position: absolute;
+    width: 25px;
+    height: 10px;
+    background-color: #999;
+    border-radius: 5px;
+    bottom: 10px;
+    right: 30px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Animação para o movimento do carro */
+@keyframes moveCar {
+    0% {
+        transform: translateX(-800px);
+    }
+    100% {
+        transform: translateX(800px);
+    }
+}
+
+/* Animação para as rodas girarem */
+@keyframes rotateWheel {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
